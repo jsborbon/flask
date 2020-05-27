@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href={{ url_for('static', filename='styles/style.css') }}
+    rel="StyleSheet" type="text/css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <center>
+      <div>
+        <tr>
+          <td><h1>Mariachis tuning their instrument</h1></td>
+        </tr>
+      </div>
+    </center>
+    {%for i in range(assignedBand|count)%}
+    <center>
+      <table>
+        <tr>
+          <td colspan="2">
+            <h2>Mariachi {{i+1}}</h2>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src={{ url_for('static', filename=assignedBand[i]+".png") }} />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>{{tuneBand[i]}}</h3>
+          </td>
+        </tr>
+      </table>
+    </center>
+    {%endfor%}
+    <input value="Continuar" type="button" onclick="location.href='/Play'" />
+  </body>
+</html>
